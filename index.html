@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어필리에이트 실적 (~27일)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f9fafb;
+            color: #374151;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 2rem;
+        }
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .chart-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+        }
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        }
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+        }
+        .card-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .card-green { background: linear-gradient(135deg, #10b981, #047857); }
+        .card-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .card-red { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .card p {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .note {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>어필리에이트 실적 (8/22~8/27)</h1>
+        
+        <!-- 매출 추이 차트 -->
+        <div class="chart-container">
+            <div class="chart-title">📈 순매출 추이</div>
+            <div class="chart-wrapper">
+                <canvas id="salesChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- 전환율 & ROAS 차트 -->
+        <div class="chart-container">
+            <div class="chart-title">🎯 전환율 & ROAS</div>
+            <div class="chart-wrapper">
+                <canvas id="conversionChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="grid grid-2">
+            <!-- 활동 참여 현황 -->
+            <div class="chart-container">
+                <div class="chart-title">👥 활동 참여 현황</div>
+                <div class="chart-wrapper">
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- 주문 & 유입 현황 -->
+            <div class="chart-container">
+                <div class="chart-title">🛒 주문 & 유입 현황</div>
+                <div class="chart-wrapper">
+                    <canvas id="orderChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 요약 카드 -->
+        <div class="summary-cards">
+            <div class="card card-blue">
+                <h3>활동신청자</h3>
+                <p>4,712명</p>
+            </div>
+            <div class="card card-green">
+                <h3>순매출</h3>
+                <p>60.3M원</p>
+            </div>
+            <div class="card card-purple">
+                <h3>최고 전환율</h3>
+                <p>5.0%</p>
+            </div>
+            <div class="card card-red">
+                <h3>최고 ROAS</h3>
+                <p>2,054%</p>
+            </div>
+        </div>
+        
+        <div class="note">
+            <strong>참고:</strong> 8/27(수) 데이터는 활동신청자수와 순매출만 제공되어 일부 차트에서는 완전한 데이터가 있는 날짜만 표시됩니다.
+        </div>
+    </div>
+
+    <script>
+        // 데이터
+        const dates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)', '8/27(수)'];
+        const salesData = [1.65, 3.45, 8.43, 13.16, 7.34, 26.31]; // 백만원 단위
+        
+        const fullDataDates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)'];
+        const conversionData = [2.9, 3.1, 3.7, 4.9, 5.0];
+        const roasData = [2053.8, 1734.5, 1766.0, 1657.5, 1739.1];
+        
+        const activityApplicants = [880, 1005, 673, 799, 737];
+        const linkUsers = [205, 263, 223, 259, 289];
+        
+        const linkInflux = [2191, 3012, 5971, 4875, 3989];
+        const orders = [63, 93, 219, 237, 201];
+        
+        // 차트 공통 옵션
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+        
+        // 매출 차트
+        new Chart(document.getElementById('salesChart'), {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: '순매출 (백만원)',
+                    data: salesData,
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                ...commonOptions,
+                plugins: {
+                    ...commonOptions.plugins,
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `순매출: ${context.parsed.y}백만원`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 전환율 & ROAS 차트
+        new Chart(document.getElementById('conversionChart'), {
+            type: 'bar',
+            data: {
+                labels: fullDataDates,
+                datasets: [{
+                    label: '전환율 (%)',
+                    data: conversionData,
+                    backgroundColor: '#3b82f6',
+                    yAxisID: 'y'
+                }, {
+                    label: 'ROAS (%)',
+                    data: roasData,
+                    type: 'line',
+                    borderColor: '#ef4444',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '전환율 (%)'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'ROAS (%)'
+                        },
+                        grid: {
+                            drawOnChartArea: false,
+                        },
+                    }
+                }
+            }
+        });
+        
+        // 활동 참여 차트
+        new Chart(document.getElementById('activityChart'), {
+            type: 'bar',
+            data: {
+                labels: fullDataDates,
+                datasets: [{
+                    label: '활동신청자',
+                    data: activityApplicants,
+                    backgroundColor: '#8b5cf6'
+                }, {
+                    label: '링크채번자',
+                    data: linkUsers,
+                    backgroundColor: '#06b6d4'
+                }]
+            },
+            options: commonOptions
+        });
+        
+        // 주문 & 유입 차트
+        new Chart(document.getElementById('orderChart'), {
+            type: 'bar',
+            data: {
+                labels: fullDataDates,
+                datasets: [{
+                    label: '주문건수',
+                    data: orders,
+                    backgroundColor: '#f59e0b',
+                    yAxisID: 'y'
+                }, {
+                    label: '링크유입',
+                    data: linkInflux,
+                    type: 'line',
+                    borderColor: '#ef4444',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        beginAtZero: true
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        beginAtZero: true,
+                        grid: {
+                            drawOnChartArea: false,
+                        },
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
