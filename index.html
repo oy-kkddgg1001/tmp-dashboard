@@ -78,13 +78,39 @@
             font-size: 2rem;
             font-weight: bold;
         }
-        .note {
-            margin-top: 2rem;
+        .insights-section {
+            margin-top: 3rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 2px solid #0ea5e9;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .insight-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .insight-item {
+            margin-bottom: 1.2rem;
             padding: 1rem;
-            background-color: #fef3c7;
-            border-left: 4px solid #f59e0b;
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 8px;
-            font-size: 0.875rem;
+            font-size: 1rem;
+            color: #0c4a6e;
+            line-height: 1.6;
+        }
+        .insight-highlight {
+            background-color: #fef08a;
+            padding: 0.3rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 700;
             color: #92400e;
         }
     </style>
@@ -131,15 +157,15 @@
         <div class="summary-cards">
             <div class="card card-blue">
                 <h3>활동신청자</h3>
-                <p>5,919명</p>
+                <p>7,355명</p>
             </div>
             <div class="card card-green">
                 <h3>순매출</h3>
-                <p>71.5M원</p>
+                <p>357.7M원</p>
             </div>
             <div class="card card-purple">
                 <h3>최고 전환율</h3>
-                <p>8.0%</p>
+                <p>14.7%</p>
             </div>
             <div class="card card-red">
                 <h3>최고 ROAS</h3>
@@ -147,8 +173,24 @@
             </div>
         </div>
         
-        <div class="note">
-            <strong>참고:</strong> 모든 날짜의 완전한 데이터가 제공되어 모든 차트에서 전체 기간 데이터를 확인할 수 있습니다.
+        <!-- 전반적 성과 분석 -->
+        <div class="insights-section">
+            <div class="insight-title">📊 전반적 성과 분석</div>
+            <div class="insight-item">
+                <strong>🚀 폭발적 성장:</strong> 8/29일 매출 <span class="insight-highlight">1억 1,484만원</span>으로 전날 대비 10배 급증, 전환율도 <span class="insight-highlight">14.7%</span>로 역대 최고 기록
+            </div>
+            <div class="insight-item">
+                <strong>💎 안정적 고성과:</strong> 8/30-31일도 각각 8,352만원, 8,781만원으로 고매출 유지하며 전환율 <span class="insight-highlight">10% 이상</span> 지속
+            </div>
+            <div class="insight-item">
+                <strong>🎯 10일간 총성과:</strong> 활동신청자 7,355명, 총매출 <span class="insight-highlight">3억 5,770만원</span>, 주문건수 9,365건으로 압도적 성과
+            </div>
+            <div class="insight-item">
+                <strong>📈 트래픽 급증:</strong> 8/29일부터 일일 링크유입 <span class="insight-highlight">2만회 돌파</span>하며 대규모 유입 달성
+            </div>
+            <div class="insight-item">
+                <strong>⚡ 효율성 개선:</strong> 초기 2.9% 전환율에서 마지막 3일간 평균 <span class="insight-highlight">11.6%</span>로 4배 향상된 최적화 성과
+            </div>
         </div>
     </div>
 
