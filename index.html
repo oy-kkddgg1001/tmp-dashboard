@@ -151,11 +151,11 @@
         <div class="summary-cards">
             <div class="card card-blue">
                 <h3>활동신청자</h3>
-                <p>8,245명</p>
+                <p>8,951명</p>
             </div>
             <div class="card card-green">
                 <h3>순매출</h3>
-                <p>564.2M원</p>
+                <p>577.5M원</p>
             </div>
             <div class="card card-purple">
                 <h3>최고 전환율</h3>
@@ -174,35 +174,38 @@
                 <strong>🚀 폭발적 성장:</strong> 8/29일 매출 <span class="highlight">1억 1,484만원</span>으로 전날 대비 10배 급증, 전환율도 <span class="highlight">14.7%</span>로 역대 최고 기록
             </div>
             <div class="insight-item">
-                <strong>💎 지속적 1억+ 매출:</strong> 8/29일 이후 9/2까지 <span class="highlight">5일 연속 1억원 이상</span> 매출 달성하며 안정적 고성과 유지
+                <strong>💎 지속적 1억+ 매출:</strong> 8/29일 이후 9/2까지 <span class="highlight">6일 연속 1억원 이상</span> 매출 달성하며 안정적 고성과 유지
             </div>
             <div class="insight-item">
-                <strong>🎯 12일간 총성과:</strong> 활동신청자 8,245명, 총매출 <span class="highlight">5억 6,420만원</span>, 주문건수 13,281건으로 압도적 성과
+                <strong>🎯 12일간 총성과:</strong> 활동신청자 8,951명, 총매출 <span class="highlight">5억 7,750만원</span>, 주문건수 13,484건으로 압도적 성과
             </div>
             <div class="insight-item">
-                <strong>📈 전환율 최적화:</strong> 9/2일 전환율 <span class="highlight">11.63%</span>로 지속적인 두 자릿수 전환율 달성
+                <strong>📈 전환율 최적화:</strong> 9/2일 전환율 <span class="highlight">11.3%</span>로 지속적인 두 자릿수 전환율 달성, ROAS도 <span class="highlight">2,076%</span> 고효율 유지
             </div>
             <div class="insight-item">
-                <strong>⚡ 9월 출발:</strong> 9/1-2일 연속 1억원 이상 매출로 <span class="highlight">9월도 강력한 시작</span>, ROAS 2,111% 신기록 달성
+                <strong>⚡ 9월 강력 시작:</strong> 9/2일 <span class="highlight">1억 1,871만원</span>으로 9월 최고 매출 경신, 9월도 폭발적 성장세 지속
             </div>
         </div>
     </div>
 
     <script>
-        // 전체 데이터
-        const allDates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)', '8/27(수)', '8/28(목)', '8/29(금)', '8/30(토)', '8/31(일)', '9/1(월)', '9/2(화)'];
-        const salesData = [1.65, 3.45, 8.43, 13.16, 7.34, 26.31, 11.20, 114.84, 83.53, 87.81, 101.41, 105.12];
+        // 데이터 정의
+        const dates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)', '8/27(수)', '8/28(목)', '8/29(금)', '8/30(토)', '8/31(일)', '9/1(월)', '9/2(화)'];
         
-        const conversionData = [2.9, 3.1, 3.7, 4.9, 5.0, 8.0, 6.3, 14.7, 10.7, 9.7, 10.1, 11.63];
-        const roasData = [2053.8, 1734.5, 1766.0, 1657.5, 1739.1, 1522.1, 1805.8, 1948.6, 1926.3, 1936.0, 2110.6, 1366.5];
+        // 매출 데이터 (백만원 단위)
+        const salesData = [1.65, 3.45, 8.43, 13.16, 7.34, 26.31, 11.20, 114.84, 83.53, 87.81, 101.41, 118.71];
         
-        // 활동 참여 (9/2는 누적 데이터라 제외)
-        const activityDates = allDates.slice(0, 11); // 9/1까지
-        const activityApplicants = [880, 1005, 673, 799, 737, 719, 488, 905, 752, 784, 890];
-        const linkUsers = [205, 263, 223, 259, 289, 272, 275, 501, 435, 406, 433];
+        // 전환율 & ROAS 데이터
+        const conversionData = [2.9, 3.1, 3.7, 4.9, 5.0, 8.0, 6.3, 14.7, 10.7, 9.7, 10.1, 11.3];
+        const roasData = [2053.8, 1734.5, 1766.0, 1657.5, 1739.1, 1522.1, 1805.8, 1948.6, 1926.3, 1936.0, 2110.6, 2075.9];
         
-        const linkInflux = [2191, 3012, 5971, 4875, 3989, 6349, 6176, 21220, 20428, 23278, 19948, 16331];
-        const orders = [63, 93, 219, 237, 201, 509, 392, 3119, 2179, 2263, 2016, 1900];
+        // 활동 참여 데이터
+        const activityApplicants = [880, 1005, 673, 799, 737, 719, 488, 905, 752, 784, 890, 706];
+        const linkUsers = [205, 263, 223, 259, 289, 272, 275, 501, 435, 406, 433, 465];
+        
+        // 주문 & 유입 데이터
+        const linkInflux = [2191, 3012, 5971, 4875, 3989, 6349, 6176, 21220, 20428, 23278, 19948, 19503];
+        const orders = [63, 93, 219, 237, 201, 509, 392, 3119, 2179, 2263, 2016, 2203];
 
         // 차트 공통 설정
         const commonOptions = {
@@ -213,11 +216,11 @@
             }
         };
 
-        // 매출 차트
+        // 1. 매출 차트
         new Chart(document.getElementById('salesChart'), {
             type: 'line',
             data: {
-                labels: allDates,
+                labels: dates,
                 datasets: [{
                     label: '순매출 (백만원)',
                     data: salesData,
@@ -234,11 +237,11 @@
             }
         });
 
-        // 전환율 & ROAS 차트
+        // 2. 전환율 & ROAS 차트
         new Chart(document.getElementById('conversionChart'), {
             type: 'bar',
             data: {
-                labels: allDates,
+                labels: dates,
                 datasets: [{
                     label: '전환율 (%)',
                     data: conversionData,
@@ -264,11 +267,11 @@
             }
         });
 
-        // 활동 참여 차트
+        // 3. 활동 참여 차트
         new Chart(document.getElementById('activityChart'), {
             type: 'bar',
             data: {
-                labels: activityDates,
+                labels: dates,
                 datasets: [{
                     label: '활동신청자',
                     data: activityApplicants,
@@ -285,11 +288,11 @@
             }
         });
 
-        // 주문 & 유입 차트
+        // 4. 주문 & 유입 차트
         new Chart(document.getElementById('orderChart'), {
             type: 'bar',
             data: {
-                labels: allDates,
+                labels: dates,
                 datasets: [{
                     label: '주문건수',
                     data: orders,
