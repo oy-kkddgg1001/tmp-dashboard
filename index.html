@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>어필리에이트 실적 (8/22~9/2)</title>
+    <title>어필리에이트 실적 (8/22~9/3)</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
@@ -107,11 +107,18 @@
             font-weight: 700;
             color: #92400e;
         }
+        .new-highlight {
+            background-color: #86efac;
+            padding: 0.3rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            color: #065f46;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>어필리에이트 실적 (8/22~9/2)</h1>
+        <h1>어필리에이트 실적 (8/22~9/3)</h1>
         
         <!-- 매출 추이 차트 -->
         <div class="chart-container">
@@ -151,11 +158,11 @@
         <div class="summary-cards">
             <div class="card card-blue">
                 <h3>활동신청자</h3>
-                <p>8,951명</p>
+                <p>9,741명</p>
             </div>
             <div class="card card-green">
                 <h3>순매출</h3>
-                <p>577.5M원</p>
+                <p>697.5M원</p>
             </div>
             <div class="card card-purple">
                 <h3>최고 전환율</h3>
@@ -171,41 +178,44 @@
         <div class="insights">
             <h2>📊 전반적 성과 분석</h2>
             <div class="insight-item">
-                <strong>🚀 폭발적 성장:</strong> 8/29일 매출 <span class="highlight">1억 1,484만원</span>으로 전날 대비 10배 급증, 전환율도 <span class="highlight">14.7%</span>로 역대 최고 기록
+                <strong>🚀 지속적 고성과:</strong> 9/3일 <span class="new-highlight">1억 1,999만원</span> 달성으로 8/29일 이후 <span class="highlight">7일 연속</span> 1억원 이상 매출 유지
             </div>
             <div class="insight-item">
-                <strong>💎 지속적 1억+ 매출:</strong> 8/29일 이후 9/2까지 <span class="highlight">6일 연속 1억원 이상</span> 매출 달성하며 안정적 고성과 유지
+                <strong>💎 안정적 성장세:</strong> 전환율 10.6%, ROAS 2,018.8%로 <span class="highlight">지속적인 두 자릿수 전환율</span>과 2,000% 이상 ROAS 유지
             </div>
             <div class="insight-item">
-                <strong>🎯 12일간 총성과:</strong> 활동신청자 8,951명, 총매출 <span class="highlight">5억 7,750만원</span>, 주문건수 13,484건으로 압도적 성과
+                <strong>🎯 13일간 총성과:</strong> 활동신청자 9,741명, 총매출 <span class="new-highlight">6억 9,750만원</span>, 주문건수 15,709건으로 압도적 성과
             </div>
             <div class="insight-item">
-                <strong>📈 전환율 최적화:</strong> 9/2일 전환율 <span class="highlight">11.3%</span>로 지속적인 두 자릿수 전환율 달성, ROAS도 <span class="highlight">2,076%</span> 고효율 유지
+                <strong>📈 고효율 지속:</strong> 링크채번자 466명으로 전일 대비 안정적, 링크유입 21,030회로 <span class="highlight">2만회 이상</span> 지속 유지
             </div>
             <div class="insight-item">
-                <strong>⚡ 9월 강력 시작:</strong> 9/2일 <span class="highlight">1억 1,871만원</span>으로 9월 최고 매출 경신, 9월도 폭발적 성장세 지속
+                <strong>⚡ 9월 강력 성장:</strong> 9/1-9/3 3일간 <span class="new-highlight">3억 4,006만원</span> 달성, 일평균 1억 1,335만원으로 9월 폭발적 시작
+            </div>
+            <div class="insight-item">
+                <strong>🔥 성과 요약:</strong> 8/29일 터닝포인트 이후 <span class="highlight">누적 매출 6억 1,629만원</span>, 평균 전환율 11.1%로 최적화된 운영 체계 구축
             </div>
         </div>
     </div>
 
     <script>
         // 데이터 정의
-        const dates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)', '8/27(수)', '8/28(목)', '8/29(금)', '8/30(토)', '8/31(일)', '9/1(월)', '9/2(화)'];
+        const dates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)', '8/27(수)', '8/28(목)', '8/29(금)', '8/30(토)', '8/31(일)', '9/1(월)', '9/2(화)', '9/3(수)'];
         
         // 매출 데이터 (백만원 단위)
-        const salesData = [1.65, 3.45, 8.43, 13.16, 7.34, 26.31, 11.20, 114.84, 83.53, 87.81, 101.41, 118.71];
+        const salesData = [1.65, 3.45, 8.43, 13.16, 7.34, 26.31, 11.20, 114.84, 83.53, 87.81, 101.41, 118.71, 119.99];
         
         // 전환율 & ROAS 데이터
-        const conversionData = [2.9, 3.1, 3.7, 4.9, 5.0, 8.0, 6.3, 14.7, 10.7, 9.7, 10.1, 11.3];
-        const roasData = [2053.8, 1734.5, 1766.0, 1657.5, 1739.1, 1522.1, 1805.8, 1948.6, 1926.3, 1936.0, 2110.6, 2075.9];
+        const conversionData = [2.9, 3.1, 3.7, 4.9, 5.0, 8.0, 6.3, 14.7, 10.7, 9.7, 10.1, 11.3, 10.6];
+        const roasData = [2053.8, 1734.5, 1766.0, 1657.5, 1739.1, 1522.1, 1805.8, 1948.6, 1926.3, 1936.0, 2110.6, 2075.9, 2018.8];
         
         // 활동 참여 데이터
-        const activityApplicants = [880, 1005, 673, 799, 737, 719, 488, 905, 752, 784, 890, 706];
-        const linkUsers = [205, 263, 223, 259, 289, 272, 275, 501, 435, 406, 433, 465];
+        const activityApplicants = [880, 1005, 673, 799, 737, 719, 488, 905, 752, 784, 890, 706, 790];
+        const linkUsers = [205, 263, 223, 259, 289, 272, 275, 501, 435, 406, 433, 465, 466];
         
         // 주문 & 유입 데이터
-        const linkInflux = [2191, 3012, 5971, 4875, 3989, 6349, 6176, 21220, 20428, 23278, 19948, 19503];
-        const orders = [63, 93, 219, 237, 201, 509, 392, 3119, 2179, 2263, 2016, 2203];
+        const linkInflux = [2191, 3012, 5971, 4875, 3989, 6349, 6176, 21220, 20428, 23278, 19948, 19503, 21030];
+        const orders = [63, 93, 219, 237, 201, 509, 392, 3119, 2179, 2263, 2016, 2203, 2225];
 
         // 차트 공통 설정
         const commonOptions = {
