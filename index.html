@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>어필리에이트 실적 (~31일)</title>
+    <title>어필리에이트 실적 (8/22~9/2)</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
@@ -46,18 +46,16 @@
             position: relative;
             height: 300px;
         }
-        .grid {
-            display: grid;
-            gap: 2rem;
-        }
         .grid-2 {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
         }
         .summary-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin: 2rem 0;
         }
         .card {
             padding: 1.5rem;
@@ -78,24 +76,20 @@
             font-size: 2rem;
             font-weight: bold;
         }
-        .insights-section {
-            margin-top: 3rem;
-            padding: 2.5rem;
+        .insights {
             background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
             border: 2px solid #0ea5e9;
             border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 2rem;
             box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        .insight-title {
+        .insights h2 {
             font-size: 1.5rem;
             font-weight: bold;
             color: #1e40af;
             margin-bottom: 1.5rem;
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
         }
         .insight-item {
             margin-bottom: 1.2rem;
@@ -106,7 +100,7 @@
             color: #0c4a6e;
             line-height: 1.6;
         }
-        .insight-highlight {
+        .highlight {
             background-color: #fef08a;
             padding: 0.3rem 0.5rem;
             border-radius: 6px;
@@ -117,7 +111,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>어필리에이트 실적 (8/22~8/31)</h1>
+        <h1>어필리에이트 실적 (8/22~9/2)</h1>
         
         <!-- 매출 추이 차트 -->
         <div class="chart-container">
@@ -135,7 +129,7 @@
             </div>
         </div>
         
-        <div class="grid grid-2">
+        <div class="grid-2">
             <!-- 활동 참여 현황 -->
             <div class="chart-container">
                 <div class="chart-title">👥 활동 참여 현황</div>
@@ -157,11 +151,11 @@
         <div class="summary-cards">
             <div class="card card-blue">
                 <h3>활동신청자</h3>
-                <p>7,355명</p>
+                <p>8,245명</p>
             </div>
             <div class="card card-green">
                 <h3>순매출</h3>
-                <p>357.7M원</p>
+                <p>564.2M원</p>
             </div>
             <div class="card card-purple">
                 <h3>최고 전환율</h3>
@@ -169,67 +163,61 @@
             </div>
             <div class="card card-red">
                 <h3>최고 ROAS</h3>
-                <p>2,054%</p>
+                <p>2,111%</p>
             </div>
         </div>
         
         <!-- 전반적 성과 분석 -->
-        <div class="insights-section">
-            <div class="insight-title">📊 전반적 성과 분석</div>
+        <div class="insights">
+            <h2>📊 전반적 성과 분석</h2>
             <div class="insight-item">
-                <strong>🚀 폭발적 성장:</strong> 8/29일 매출 <span class="insight-highlight">1억 1,484만원</span>으로 전날 대비 10배 급증, 전환율도 <span class="insight-highlight">14.7%</span>로 역대 최고 기록
+                <strong>🚀 폭발적 성장:</strong> 8/29일 매출 <span class="highlight">1억 1,484만원</span>으로 전날 대비 10배 급증, 전환율도 <span class="highlight">14.7%</span>로 역대 최고 기록
             </div>
             <div class="insight-item">
-                <strong>💎 안정적 고성과:</strong> 8/30-31일도 각각 8,352만원, 8,781만원으로 고매출 유지하며 전환율 <span class="insight-highlight">10% 이상</span> 지속
+                <strong>💎 지속적 1억+ 매출:</strong> 8/29일 이후 9/2까지 <span class="highlight">5일 연속 1억원 이상</span> 매출 달성하며 안정적 고성과 유지
             </div>
             <div class="insight-item">
-                <strong>🎯 10일간 총성과:</strong> 활동신청자 7,355명, 총매출 <span class="insight-highlight">3억 5,770만원</span>, 주문건수 9,365건으로 압도적 성과
+                <strong>🎯 12일간 총성과:</strong> 활동신청자 8,245명, 총매출 <span class="highlight">5억 6,420만원</span>, 주문건수 13,281건으로 압도적 성과
             </div>
             <div class="insight-item">
-                <strong>📈 트래픽 급증:</strong> 8/29일부터 일일 링크유입 <span class="insight-highlight">2만회 돌파</span>하며 대규모 유입 달성
+                <strong>📈 전환율 최적화:</strong> 9/2일 전환율 <span class="highlight">11.63%</span>로 지속적인 두 자릿수 전환율 달성
             </div>
             <div class="insight-item">
-                <strong>⚡ 효율성 개선:</strong> 초기 2.9% 전환율에서 마지막 3일간 평균 <span class="insight-highlight">11.6%</span>로 4배 향상된 최적화 성과
+                <strong>⚡ 9월 출발:</strong> 9/1-2일 연속 1억원 이상 매출로 <span class="highlight">9월도 강력한 시작</span>, ROAS 2,111% 신기록 달성
             </div>
         </div>
     </div>
 
     <script>
-        // 데이터
-        const dates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)', '8/27(수)', '8/28(목)', '8/29(금)', '8/30(토)', '8/31(일)'];
-        const salesData = [1.65, 3.45, 8.43, 13.16, 7.34, 26.31, 11.20, 114.84, 83.53, 87.81]; // 백만원 단위
+        // 전체 데이터
+        const allDates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)', '8/27(수)', '8/28(목)', '8/29(금)', '8/30(토)', '8/31(일)', '9/1(월)', '9/2(화)'];
+        const salesData = [1.65, 3.45, 8.43, 13.16, 7.34, 26.31, 11.20, 114.84, 83.53, 87.81, 101.41, 105.12];
         
-        const fullDataDates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)', '8/27(수)', '8/28(목)', '8/29(금)', '8/30(토)', '8/31(일)'];
-        const conversionData = [2.9, 3.1, 3.7, 4.9, 5.0, 8.0, 6.3, 14.7, 10.7, 9.7];
-        const roasData = [2053.8, 1734.5, 1766.0, 1657.5, 1739.1, 1522.1, 1805.8, 1948.6, 1926.3, 1936.0];
+        const conversionData = [2.9, 3.1, 3.7, 4.9, 5.0, 8.0, 6.3, 14.7, 10.7, 9.7, 10.1, 11.63];
+        const roasData = [2053.8, 1734.5, 1766.0, 1657.5, 1739.1, 1522.1, 1805.8, 1948.6, 1926.3, 1936.0, 2110.6, 1366.5];
         
-        const activityApplicants = [880, 1005, 673, 799, 737, 719, 488, 905, 752, 784];
-        const linkUsers = [205, 263, 223, 259, 289, 272, 275, 501, 435, 406];
+        // 활동 참여 (9/2는 누적 데이터라 제외)
+        const activityDates = allDates.slice(0, 11); // 9/1까지
+        const activityApplicants = [880, 1005, 673, 799, 737, 719, 488, 905, 752, 784, 890];
+        const linkUsers = [205, 263, 223, 259, 289, 272, 275, 501, 435, 406, 433];
         
-        const linkInflux = [2191, 3012, 5971, 4875, 3989, 6349, 6176, 21220, 20428, 23278];
-        const orders = [63, 93, 219, 237, 201, 509, 392, 3119, 2179, 2263];
-        
-        // 차트 공통 옵션
+        const linkInflux = [2191, 3012, 5971, 4875, 3989, 6349, 6176, 21220, 20428, 23278, 19948, 16331];
+        const orders = [63, 93, 219, 237, 201, 509, 392, 3119, 2179, 2263, 2016, 1900];
+
+        // 차트 공통 설정
         const commonOptions = {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: {
-                    position: 'top',
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+                legend: { position: 'top' }
             }
         };
-        
+
         // 매출 차트
         new Chart(document.getElementById('salesChart'), {
             type: 'line',
             data: {
-                labels: dates,
+                labels: allDates,
                 datasets: [{
                     label: '순매출 (백만원)',
                     data: salesData,
@@ -242,24 +230,15 @@
             },
             options: {
                 ...commonOptions,
-                plugins: {
-                    ...commonOptions.plugins,
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return `순매출: ${context.parsed.y}백만원`;
-                            }
-                        }
-                    }
-                }
+                scales: { y: { beginAtZero: true } }
             }
         });
-        
+
         // 전환율 & ROAS 차트
         new Chart(document.getElementById('conversionChart'), {
             type: 'bar',
             data: {
-                labels: fullDataDates,
+                labels: allDates,
                 datasets: [{
                     label: '전환율 (%)',
                     data: conversionData,
@@ -270,53 +249,26 @@
                     data: roasData,
                     type: 'line',
                     borderColor: '#ef4444',
-                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
                     borderWidth: 3,
-                    tension: 0.4,
                     yAxisID: 'y1'
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    }
-                },
+                plugins: { legend: { position: 'top' } },
                 scales: {
-                    y: {
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: '전환율 (%)'
-                        }
-                    },
-                    y1: {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'ROAS (%)'
-                        },
-                        grid: {
-                            drawOnChartArea: false,
-                        },
-                    }
+                    y: { beginAtZero: true, position: 'left' },
+                    y1: { beginAtZero: true, position: 'right', grid: { drawOnChartArea: false } }
                 }
             }
         });
-        
+
         // 활동 참여 차트
         new Chart(document.getElementById('activityChart'), {
             type: 'bar',
             data: {
-                labels: fullDataDates,
+                labels: activityDates,
                 datasets: [{
                     label: '활동신청자',
                     data: activityApplicants,
@@ -327,14 +279,17 @@
                     backgroundColor: '#06b6d4'
                 }]
             },
-            options: commonOptions
+            options: {
+                ...commonOptions,
+                scales: { y: { beginAtZero: true } }
+            }
         });
-        
+
         // 주문 & 유입 차트
         new Chart(document.getElementById('orderChart'), {
             type: 'bar',
             data: {
-                labels: fullDataDates,
+                labels: allDates,
                 datasets: [{
                     label: '주문건수',
                     data: orders,
@@ -345,36 +300,17 @@
                     data: linkInflux,
                     type: 'line',
                     borderColor: '#ef4444',
-                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
                     borderWidth: 3,
-                    tension: 0.4,
                     yAxisID: 'y1'
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    }
-                },
+                plugins: { legend: { position: 'top' } },
                 scales: {
-                    y: {
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        beginAtZero: true
-                    },
-                    y1: {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        beginAtZero: true,
-                        grid: {
-                            drawOnChartArea: false,
-                        },
-                    }
+                    y: { beginAtZero: true, position: 'left' },
+                    y1: { beginAtZero: true, position: 'right', grid: { drawOnChartArea: false } }
                 }
             }
         });
