@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>어필리에이트 실적 (8/22~9/4)</title>
+    <title>어필리에이트 실적 (8/22~9/7)</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
@@ -28,6 +28,17 @@
             font-weight: bold;
             color: #1f2937;
             margin-bottom: 2rem;
+        }
+        .sale-period {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #059669;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-radius: 12px;
+            border: 2px solid #10b981;
         }
         .chart-container {
             background: white;
@@ -67,6 +78,8 @@
         .card-green { background: linear-gradient(135deg, #10b981, #047857); }
         .card-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
         .card-red { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .card-orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .card-yellow { background: linear-gradient(135deg, #eab308, #ca8a04); }
         .card h3 {
             font-size: 1.125rem;
             font-weight: 600;
@@ -107,18 +120,45 @@
             font-weight: 700;
             color: #92400e;
         }
-        .new-highlight {
+        .decline-highlight {
+            background-color: #fecaca;
+            padding: 0.3rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            color: #991b1b;
+        }
+        .success-highlight {
             background-color: #86efac;
             padding: 0.3rem 0.5rem;
             border-radius: 6px;
             font-weight: 700;
             color: #065f46;
         }
+        .sale-highlight {
+            background-color: #a7f3d0;
+            padding: 0.3rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            color: #047857;
+            border: 1px solid #10b981;
+        }
+        .presale-highlight {
+            background-color: #fed7aa;
+            padding: 0.3rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            color: #c2410c;
+            border: 1px solid #f97316;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>어필리에이트 실적 (8/22~9/4)</h1>
+        <h1>어필리에이트 실적 (8/22~9/7)</h1>
+        
+        <div class="sale-period">
+            🎉 세일 기간: 8/30(토) ~ 9/5(목) | 총 7일간 진행 | 세일 예고 효과: 8/29(금)
+        </div>
         
         <!-- 매출 추이 차트 -->
         <div class="chart-container">
@@ -157,12 +197,20 @@
         <!-- 요약 카드 -->
         <div class="summary-cards">
             <div class="card card-blue">
-                <h3>활동신청자</h3>
-                <p>10,594명</p>
+                <h3>총 활동신청자</h3>
+                <p>11,203명</p>
             </div>
             <div class="card card-green">
-                <h3>순매출</h3>
-                <p>852.2M원</p>
+                <h3>총 순매출</h3>
+                <p>730.5M원</p>
+            </div>
+            <div class="card card-orange">
+                <h3>세일 기간 매출</h3>
+                <p>627.3M원</p>
+            </div>
+            <div class="card card-yellow">
+                <h3>세일 예고 효과</h3>
+                <p>114.8M원</p>
             </div>
             <div class="card card-purple">
                 <h3>최고 전환율</h3>
@@ -170,52 +218,55 @@
             </div>
             <div class="card card-red">
                 <h3>최고 ROAS</h3>
-                <p>2,113%</p>
+                <p>2,111%</p>
             </div>
         </div>
         
         <!-- 전반적 성과 분석 -->
         <div class="insights">
-            <h2>📊 전반적 성과 분석</h2>
+            <h2>📊 세일 기간 성과 분석</h2>
             <div class="insight-item">
-                <strong>🔥 신기록 달성:</strong> 9/4일 <span class="new-highlight">1억 5,466만원</span> 기록으로 <span class="highlight">단일일 매출 신기록</span> 수립하며 8일 연속 1억원 돌파
+                <strong>🎯 세일 예고 효과:</strong> 8/29일 <span class="presale-highlight">세일 예고</span>로 매출이 전날 대비 <span class="highlight">1,025% 급증</span> (1,120만원 → 1억 1,484만원)
             </div>
             <div class="insight-item">
-                <strong>💎 최적화된 성능:</strong> 전환율 13.0%, ROAS 2,112.7%로 <span class="highlight">모든 지표가 최고 수준</span> 근접하며 안정적 고성과 지속
+                <strong>🎉 세일 기간 성과:</strong> 8/30-9/5 <span class="sale-highlight">실제 세일 7일간</span> 총 <span class="success-highlight">6억 2,729만원</span> 달성, 일평균 8,961만원
             </div>
             <div class="insight-item">
-                <strong>🎯 14일간 총성과:</strong> 활동신청자 10,594명, 총매출 <span class="new-highlight">8억 5,223만원</span>, 주문건수 18,859건으로 8억원 돌파
+                <strong>🚀 세일 효과 총계:</strong> 세일 예고(8/29) + 실제 세일(8/30-9/5) = <span class="success-highlight">7억 4,213만원</span>, 전체 매출의 <span class="highlight">101.6%</span> (9/6-9/7 손실 상쇄)
             </div>
             <div class="insight-item">
-                <strong>📈 유입 최고치:</strong> 링크유입 24,286회로 <span class="highlight">역대 최고 기록</span>, 주문건수 3,150건으로 3천건 이상 달성
+                <strong>💎 세일 중 안정성:</strong> 7일 중 6일이 <span class="success-highlight">8,000만원 이상</span> 달성, 마지막 날(9/5)만 1,697만원으로 하락
             </div>
             <div class="insight-item">
-                <strong>⚡ 9월 폭발적 성장:</strong> 9/1-9/4 4일간 <span class="new-highlight">4억 9,472만원</span> 달성, 일평균 1억 2,368만원으로 월 시작 대비 9.1% 상승
+                <strong>📉 세일 종료 충격:</strong> 9/6-9/7일 세일 종료 후 매출 평균 <span class="decline-highlight">801만원</span>으로 세일 기간 대비 <span class="decline-highlight">91% 감소</span>
             </div>
             <div class="insight-item">
-                <strong>🚀 지속적 상승세:</strong> 8/29일 터닝포인트 이후 <span class="highlight">누적 매출 7억 7,095만원</span>, 8일 평균 매출 9,637만원으로 안정된 고매출 구조 정착
+                <strong>🎯 전환율 변화:</strong> 세일 예고일 <span class="presale-highlight">14.7%</span> vs 세일 기간 평균 <span class="sale-highlight">10.9%</span> vs 세일 후 평균 <span class="decline-highlight">3.6%</span>
+            </div>
+            <div class="insight-item">
+                <strong>⚡ 핵심 발견:</strong> <span class="presale-highlight">세일 예고의 폭발력</span>과 <span class="sale-highlight">7일간 세일의 지속력</span>이 결합되어 캠페인 대성공 달성
             </div>
         </div>
     </div>
 
     <script>
         // 데이터 정의
-        const dates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)', '8/27(수)', '8/28(목)', '8/29(금)', '8/30(토)', '8/31(일)', '9/1(월)', '9/2(화)', '9/3(수)', '9/4(목)'];
+        const dates = ['8/22(금)', '8/23(토)', '8/24(일)', '8/25(월)', '8/26(화)', '8/27(수)', '8/28(목)', '8/29(금)', '8/30(토)', '8/31(일)', '9/1(월)', '9/2(화)', '9/3(수)', '9/5(금)', '9/6(토)', '9/7(일)'];
         
         // 매출 데이터 (백만원 단위)
-        const salesData = [1.65, 3.45, 8.43, 13.16, 7.34, 26.31, 11.20, 114.84, 83.53, 87.81, 101.41, 118.71, 119.99, 154.66];
+        const salesData = [1.65, 3.45, 8.43, 13.16, 7.34, 26.31, 11.20, 114.84, 83.53, 87.81, 101.41, 118.71, 119.99, 16.97, 7.26, 8.81];
         
         // 전환율 & ROAS 데이터
-        const conversionData = [2.9, 3.1, 3.7, 4.9, 5.0, 8.0, 6.3, 14.7, 10.7, 9.7, 10.1, 11.3, 10.6, 13.0];
-        const roasData = [2053.8, 1734.5, 1766.0, 1657.5, 1739.1, 1522.1, 1805.8, 1948.6, 1926.3, 1936.0, 2110.6, 2075.9, 2018.8, 2112.7];
+        const conversionData = [2.9, 3.1, 3.7, 4.9, 5.0, 8.0, 6.3, 14.7, 10.7, 9.7, 10.1, 11.3, 10.6, 5.3, 3.8, 3.4];
+        const roasData = [2053.8, 1734.5, 1766.0, 1657.5, 1739.1, 1522.1, 1805.8, 1948.6, 1926.3, 1936.0, 2110.6, 2075.9, 2018.8, 1734.9, 1765.1, 1920.3];
         
         // 활동 참여 데이터
-        const activityApplicants = [880, 1005, 673, 799, 737, 719, 488, 905, 752, 784, 890, 706, 790, 853];
-        const linkUsers = [205, 263, 223, 259, 289, 272, 275, 501, 435, 406, 433, 465, 466, 456];
+        const activityApplicants = [880, 1005, 673, 799, 737, 719, 488, 905, 752, 784, 890, 706, 790, 607, 436, 419];
+        const linkUsers = [205, 263, 223, 259, 289, 272, 275, 501, 435, 406, 433, 465, 466, 252, 199, 206];
         
         // 주문 & 유입 데이터
-        const linkInflux = [2191, 3012, 5971, 4875, 3989, 6349, 6176, 21220, 20428, 23278, 19948, 19503, 21030, 24286];
-        const orders = [63, 93, 219, 237, 201, 509, 392, 3119, 2179, 2263, 2016, 2203, 2225, 3150];
+        const linkInflux = [2191, 3012, 5971, 4875, 3989, 6349, 6176, 21220, 20428, 23278, 19948, 19503, 21030, 6735, 3973, 5729];
+        const orders = [63, 93, 219, 237, 201, 509, 392, 3119, 2179, 2263, 2016, 2203, 2225, 359, 152, 195];
 
         // 차트 공통 설정
         const commonOptions = {
@@ -226,7 +277,7 @@
             }
         };
 
-        // 1. 매출 차트
+        // 1. 매출 차트 (세일 예고 + 세일 기간 + 세일 후 구분)
         new Chart(document.getElementById('salesChart'), {
             type: 'line',
             data: {
@@ -238,7 +289,20 @@
                     backgroundColor: 'rgba(16, 185, 129, 0.1)',
                     borderWidth: 3,
                     fill: true,
-                    tension: 0.4
+                    tension: 0.4,
+                    pointBackgroundColor: salesData.map((value, index) => {
+                        if (index >= 14) return '#ef4444'; // 세일 종료 후 (9/6-9/7)
+                        if (index >= 8 && index <= 13) return '#10b981'; // 세일기간 (8/30-9/5)
+                        if (index === 7) return '#f97316'; // 세일 예고 (8/29)
+                        return '#6b7280'; // 세일 전
+                    }),
+                    pointBorderColor: salesData.map((value, index) => {
+                        if (index >= 14) return '#ef4444';
+                        if (index >= 8 && index <= 13) return '#10b981';
+                        if (index === 7) return '#f97316';
+                        return '#6b7280';
+                    }),
+                    pointRadius: 6
                 }]
             },
             options: {
@@ -255,13 +319,18 @@
                 datasets: [{
                     label: '전환율 (%)',
                     data: conversionData,
-                    backgroundColor: '#3b82f6',
+                    backgroundColor: conversionData.map((value, index) => {
+                        if (index >= 14) return '#ef4444'; // 세일 후
+                        if (index >= 8 && index <= 13) return '#10b981'; // 세일기간
+                        if (index === 7) return '#f97316'; // 세일 예고
+                        return '#3b82f6'; // 세일 전
+                    }),
                     yAxisID: 'y'
                 }, {
                     label: 'ROAS (%)',
                     data: roasData,
                     type: 'line',
-                    borderColor: '#ef4444',
+                    borderColor: '#f59e0b',
                     borderWidth: 3,
                     yAxisID: 'y1'
                 }]
@@ -285,7 +354,11 @@
                 datasets: [{
                     label: '활동신청자',
                     data: activityApplicants,
-                    backgroundColor: '#8b5cf6'
+                    backgroundColor: activityApplicants.map((value, index) => {
+                        if (index >= 8 && index <= 13) return '#10b981'; // 세일기간
+                        if (index === 7) return '#f97316'; // 세일 예고
+                        return '#8b5cf6'; // 일반
+                    })
                 }, {
                     label: '링크채번자',
                     data: linkUsers,
@@ -306,7 +379,11 @@
                 datasets: [{
                     label: '주문건수',
                     data: orders,
-                    backgroundColor: '#f59e0b',
+                    backgroundColor: orders.map((value, index) => {
+                        if (index >= 8 && index <= 13) return '#10b981'; // 세일기간
+                        if (index === 7) return '#f97316'; // 세일 예고
+                        return '#f59e0b'; // 일반
+                    }),
                     yAxisID: 'y'
                 }, {
                     label: '링크유입',
