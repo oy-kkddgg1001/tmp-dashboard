@@ -1,0 +1,48 @@
+{
+  "colors": {
+    "presale": "#f97316",
+    "sale": "#10b981", 
+    "postsale": "#ef4444",
+    "recovery": "#0ea5e9",
+    "normal": "#6b7280",
+    "secondary": "#3b82f6",
+    "accent": "#8b5cf6",
+    "warning": "#f59e0b",
+    "info": "#06b6d4"
+  },
+  "periods": {
+    "presale": 7,
+    "saleStart": 8,
+    "saleEnd": 14,
+    "postsaleStart": 15,
+    "postsaleEnd": 16,
+    "recoveryStart": 17
+  },
+  "charts": {
+    "sales": {
+      "type": "line",
+      "borderWidth": 3,
+      "tension": 0.4,
+      "pointRadius": 6,
+      "fill": true,
+      "fillOpacity": 0.1
+    },
+    "conversion": {
+      "type": "bar"
+    },
+    "activity": {
+      "type": "bar"
+    },
+    "order": {
+      "type": "bar"
+    }
+  },
+  "cardColors": [
+    "card-blue",
+    "card-green", 
+    "card-orange",
+    "card-yellow",
+    "card-purple",
+    "card-red"
+  ]
+}

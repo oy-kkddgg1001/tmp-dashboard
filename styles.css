@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f9fafb;
+    color: #374151;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 2rem;
+}
+
+.sale-period {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #059669;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    border-radius: 12px;
+    border: 2px solid #10b981;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.chart-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 300px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+}
+
+.card-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.card-green { background: linear-gradient(135deg, #10b981, #047857); }
+.card-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.card-red { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.card-orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.card-yellow { background: linear-gradient(135deg, #eab308, #ca8a04); }
+
+.card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.insights {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 2px solid #0ea5e9;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.insights h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1e40af;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.insight-item {
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #0c4a6e;
+    line-height: 1.6;
+}
+
+.highlight {
+    background-color: #fef08a;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #92400e;
+}
+
+.decline-highlight {
+    background-color: #fecaca;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #991b1b;
+}
+
+.success-highlight {
+    background-color: #86efac;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #065f46;
+}
+
+.sale-highlight {
+    background-color: #a7f3d0;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #047857;
+    border: 1px solid #10b981;
+}
+
+.presale-highlight {
+    background-color: #fed7aa;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #c2410c;
+    border: 1px solid #f97316;
+}
+
+.recovery-highlight {
+    background-color: #bae6fd;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #0369a1;
+    border: 1px solid #0ea5e9;
+}
