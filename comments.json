@@ -1,41 +1,25 @@
 {
-  "title": "📊 세일 기간 성과 분석 및 회복 동향",
-  "insights": [
-    {
-      "title": "🎯 세일 예고 효과:",
-      "content": "8/29일 <span class=\"presale-highlight\">세일 예고</span>로 매출이 전날 대비 <span class=\"highlight\">1,025% 급증</span> (1,120만원 → 1억 1,484만원)"
+  "title": "📊 일자별 성과 분석",
+  "tabs": {
+    "9/10": {
+      "title": "9/10일 기준 분석",
+      "comments": [
+        "🎯 세일 예고 효과: 8/29일 매출 1,025% 급증으로 세일 예고의 폭발력 확인",
+        "🎉 세일 기간 대성공: 8/30-9/5 총 7억 8,234만원 달성, 일평균 1억 1,176만원",
+        "📉 세일 종료 충격: 9/6-9/7일 평균 801만원으로 93% 급락",
+        "📈 회복 신호: 9/8일 3,806만원으로 반등 시작",
+        "⚖️ 안정화 단계: 9/10일 1,533만원, 전환율 6.7%로 회복세 지속"
+      ]
     },
-    {
-      "title": "🎉 세일 기간 대성공:",
-      "content": "8/30-9/5 <span class=\"sale-highlight\">실제 세일 7일간</span> 총 <span class=\"success-highlight\">7억 8,234만원</span> 달성, 일평균 1억 1,176만원"
-    },
-    {
-      "title": "🚀 세일 기간 안정성:",
-      "content": "9/4일 <span class=\"success-highlight\">1억 5,466만원</span>으로 세일 기간 중 최고 매출 달성, 7일 모두 8,000만원 이상 유지"
-    },
-    {
-      "title": "📉 세일 종료 충격:",
-      "content": "9/6-9/7일 세일 종료 후 매출 평균 <span class=\"decline-highlight\">801만원</span>으로 세일 기간 대비 <span class=\"decline-highlight\">93% 감소</span>"
-    },
-    {
-      "title": "📈 회복 신호:",
-      "content": "9/8일 <span class=\"recovery-highlight\">3,806만원</span>, 9/9일 <span class=\"recovery-highlight\">2,607만원</span>으로 안정적 회복세 지속 중"
-    },
-    {
-      "title": "🎯 전환율 분석:",
-      "content": "세일 예고일 <span class=\"presale-highlight\">14.7%</span> vs 세일 기간 평균 <span class=\"sale-highlight\">11.0%</span> vs 세일 후 평균 <span class=\"decline-highlight\">3.6%</span> vs 회복 기간 평균 <span class=\"recovery-highlight\">9.9%</span>"
-    },
-    {
-      "title": "💡 핵심 발견:",
-      "content": "<span class=\"presale-highlight\">세일 예고의 폭발력</span>과 <span class=\"sale-highlight\">7일간 완벽한 세일 운영</span>이 결합되어 역대급 성과 달성, 9/8일부터 <span class=\"recovery-highlight\">안정적인 회복세</span> 확인"
-    },
-    {
-      "title": "⚡ 주목할 점:",
-      "content": "9/8-9일 2일간 평균 매출 <span class=\"recovery-highlight\">3,207만원</span>으로 세일 후 2일간(801만원) 대비 <span class=\"highlight\">300% 회복</span>, 정상 궤도 복귀 중"
-    },
-    {
-      "title": "🏆 9/9일 특이사항:",
-      "content": "TOP 1 큐레이터의 매출 상승으로 전체 일매출이 평시 대비 증가. <span class=\"success-highlight\">TOP 1 단독 1,753만원</span> (전체 매출의 <span class=\"highlight\">67.2%</span>)"
+    "9/11": {
+      "title": "9/11일 기준 분석",
+      "comments": [
+        "🎯 세일 예고 효과: 8/29일 매출 1,025% 급증으로 세일 예고의 폭발력 확인",
+        "🎉 세일 기간 대성공: 8/30-9/5 총 7억 8,234만원 달성, 일평균 1억 1,176만원",
+        "📈 회복세 강화: 9/8-11일 4일간 평균 2,501만원으로 안정적 회복",
+        "🔥 9/11일 특이사항: 활동 신청자 540명(+47%), 전환율 8.9%(+33%) 상승",
+        "💪 회복 트렌드: ROAS 1683.9%로 건전한 수익성 유지"
+      ]
     }
-  ]
+  }
 }
