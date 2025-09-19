@@ -183,7 +183,14 @@ function createSalesChart() {
         if (index === 7) return 'rgba(249, 115, 22, 0.2)'; // 세일 예고 (주황)
         if (index >= 8 && index <= 14) return 'rgba(16, 185, 129, 0.2)'; // 세일 기간 (초록)
         if (index >= 17) return 'rgba(14, 165, 233, 0.2)'; // 회복 기간 (파랑)
+        if (index >= 26) return 'rgba(236, 72, 153, 0.3)'; // 최신 데이터 (핑크)
         return 'rgba(156, 163, 175, 0.1)'; // 일반 기간 (회색)
+    });
+
+    // 포인트 크기 조정 (최신 데이터 강조)
+    const pointRadius = data.sales.map((_, index) => {
+        if (index >= 26) return 8; // 최신 2일 데이터 크게
+        return 6;
     });
 
     new Chart(document.getElementById('salesChart'), {
@@ -194,14 +201,29 @@ function createSalesChart() {
                 label: '순매출 (백만원)',
                 data: data.sales,
                 borderColor: '#667eea',
-                backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                backgroundColor: (ctx) => {
+                    const canvas = ctx.chart.ctx;
+                    const gradient = canvas.createLinearGradient(0, 0, 0, 400);
+                    gradient.addColorStop(0, 'rgba(102, 126, 234, 0.3)');
+                    gradient.addColorStop(1, 'rgba(102, 126, 234, 0.05)');
+                    return gradient;
+                },
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4,
-                pointBackgroundColor: backgroundColors.map(color => color.replace('0.2', '0.8')),
-                pointBorderColor: '#667eea',
-                pointRadius: 6,
-                pointHoverRadius: 8,
+                pointBackgroundColor: backgroundColors.map((color, index) => {
+                    if (index >= 26) return '#ec4899'; // 최신 데이터 핑크
+                    return color.replace('0.2', '0.8');
+                }),
+                pointBorderColor: data.sales.map((_, index) => {
+                    if (index >= 26) return '#ec4899'; // 최신 데이터 핑크 테두리
+                    return '#667eea';
+                }),
+                pointRadius: pointRadius,
+                pointHoverRadius: data.sales.map((_, index) => {
+                    if (index >= 26) return 10;
+                    return 8;
+                }),
                 pointBorderWidth: 2
             }]
         },
@@ -234,6 +256,19 @@ function createSalesChart() {
                             backgroundColor: 'rgba(14, 165, 233, 0.15)',
                             borderColor: 'rgba(14, 165, 233, 0.5)',
                             borderWidth: 1
+                        },
+                        latest: {
+                            type: 'box',
+                            xMin: 26,
+                            xMax: 27,
+                            backgroundColor: 'rgba(236, 72, 153, 0.15)',
+                            borderColor: 'rgba(236, 72, 153, 0.5)',
+                            borderWidth: 2,
+                            label: {
+                                content: '최신 성과',
+                                enabled: true,
+                                position: 'top'
+                            }
                         }
                     }
                 }
@@ -258,6 +293,19 @@ function createSalesChart() {
 
 // 2. 전환율 & ROAS 차트
 function createConversionChart() {
+    // 전환율 포인트 색상 (18.1% 신기록 강조)
+    const conversionPointColors = data.conversion.map((value, index) => {
+        if (value >= 18) return '#dc2626'; // 18% 이상 빨간색
+        if (index >= 26) return '#ec4899'; // 최신 데이터 핑크
+        return '#11998e';
+    });
+
+    const conversionPointRadius = data.conversion.map((value, index) => {
+        if (value >= 18) return 10; // 신기록 크게
+        if (index >= 26) return 8; // 최신 데이터 크게
+        return 5;
+    });
+
     new Chart(document.getElementById('conversionChart'), {
         type: 'line',
         data: {
@@ -267,12 +315,24 @@ function createConversionChart() {
                     label: '전환율 (%)',
                     data: data.conversion,
                     borderColor: '#11998e',
-                    backgroundColor: 'rgba(17, 153, 142, 0.1)',
+                    backgroundColor: (ctx) => {
+                        const canvas = ctx.chart.ctx;
+                        const gradient = canvas.createLinearGradient(0, 0, 0, 300);
+                        gradient.addColorStop(0, 'rgba(17, 153, 142, 0.2)');
+                        gradient.addColorStop(1, 'rgba(17, 153, 142, 0.05)');
+                        return gradient;
+                    },
                     borderWidth: 3,
-                    fill: false,
+                    fill: true,
                     tension: 0.4,
-                    pointRadius: 5,
-                    pointHoverRadius: 7,
+                    pointBackgroundColor: conversionPointColors,
+                    pointBorderColor: conversionPointColors,
+                    pointRadius: conversionPointRadius,
+                    pointHoverRadius: data.conversion.map((value, index) => {
+                        if (value >= 18) return 12;
+                        if (index >= 26) return 10;
+                        return 7;
+                    }),
                     yAxisID: 'y'
                 },
                 {
@@ -283,14 +343,51 @@ function createConversionChart() {
                     borderWidth: 3,
                     fill: false,
                     tension: 0.4,
-                    pointRadius: 5,
-                    pointHoverRadius: 7,
+                    pointBackgroundColor: data.roas.map((_, index) => {
+                        if (index >= 26) return '#ec4899';
+                        return '#764ba2';
+                    }),
+                    pointBorderColor: data.roas.map((_, index) => {
+                        if (index >= 26) return '#ec4899';
+                        return '#764ba2';
+                    }),
+                    pointRadius: data.roas.map((_, index) => {
+                        if (index >= 26) return 8;
+                        return 5;
+                    }),
+                    pointHoverRadius: data.roas.map((_, index) => {
+                        if (index >= 26) return 10;
+                        return 7;
+                    }),
                     yAxisID: 'y1'
                 }
             ]
         },
         options: {
             ...getCommonOptions(),
+            plugins: {
+                ...getCommonOptions().plugins,
+                annotation: {
+                    annotations: {
+                        conversionRecord: {
+                            type: 'line',
+                            yMin: 18.1,
+                            yMax: 18.1,
+                            borderColor: '#dc2626',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            scaleID: 'y',
+                            label: {
+                                content: '신기록 18.1%',
+                                enabled: true,
+                                position: 'end',
+                                backgroundColor: '#dc2626',
+                                color: 'white'
+                            }
+                        }
+                    }
+                }
+            },
             scales: {
                 ...getCommonOptions().scales,
                 y: {
@@ -373,6 +470,19 @@ function createActivityChart() {
 
 // 4. 주문 & 유입 현황 차트
 function createOrderChart() {
+    // 주문건수 포인트 색상 (1,457건 신기록 강조)
+    const orderPointColors = data.orders.map((value, index) => {
+        if (value >= 1400) return '#dc2626'; // 1400건 이상 빨간색
+        if (index >= 26) return '#ec4899'; // 최신 데이터 핑크
+        return '#fab1a0';
+    });
+
+    const orderPointRadius = data.orders.map((value, index) => {
+        if (value >= 1400) return 10; // 신기록 크게
+        if (index >= 26) return 8; // 최신 데이터 크게
+        return 4;
+    });
+
     new Chart(document.getElementById('orderChart'), {
         type: 'line',
         data: {
@@ -382,30 +492,85 @@ function createOrderChart() {
                     label: '링크 유입수',
                     data: data.linkInflux,
                     borderColor: '#ffeaa7',
-                    backgroundColor: 'rgba(255, 234, 167, 0.2)',
+                    backgroundColor: (ctx) => {
+                        const canvas = ctx.chart.ctx;
+                        const gradient = canvas.createLinearGradient(0, 0, 0, 300);
+                        gradient.addColorStop(0, 'rgba(255, 234, 167, 0.3)');
+                        gradient.addColorStop(1, 'rgba(255, 234, 167, 0.05)');
+                        return gradient;
+                    },
                     borderWidth: 3,
                     fill: true,
                     tension: 0.4,
-                    pointRadius: 4,
-                    pointHoverRadius: 6,
+                    pointBackgroundColor: data.linkInflux.map((_, index) => {
+                        if (index >= 26) return '#ec4899';
+                        return '#ffeaa7';
+                    }),
+                    pointBorderColor: data.linkInflux.map((_, index) => {
+                        if (index >= 26) return '#ec4899';
+                        return '#ffeaa7';
+                    }),
+                    pointRadius: data.linkInflux.map((_, index) => {
+                        if (index >= 26) return 8;
+                        return 4;
+                    }),
+                    pointHoverRadius: data.linkInflux.map((_, index) => {
+                        if (index >= 26) return 10;
+                        return 6;
+                    }),
                     yAxisID: 'y'
                 },
                 {
                     label: '주문건수',
                     data: data.orders,
                     borderColor: '#fab1a0',
-                    backgroundColor: 'rgba(250, 177, 160, 0.2)',
+                    backgroundColor: (ctx) => {
+                        const canvas = ctx.chart.ctx;
+                        const gradient = canvas.createLinearGradient(0, 0, 0, 300);
+                        gradient.addColorStop(0, 'rgba(250, 177, 160, 0.3)');
+                        gradient.addColorStop(1, 'rgba(250, 177, 160, 0.05)');
+                        return gradient;
+                    },
                     borderWidth: 3,
                     fill: true,
                     tension: 0.4,
-                    pointRadius: 4,
-                    pointHoverRadius: 6,
+                    pointBackgroundColor: orderPointColors,
+                    pointBorderColor: orderPointColors,
+                    pointRadius: orderPointRadius,
+                    pointHoverRadius: data.orders.map((value, index) => {
+                        if (value >= 1400) return 12;
+                        if (index >= 26) return 10;
+                        return 6;
+                    }),
                     yAxisID: 'y1'
                 }
             ]
         },
         options: {
             ...getCommonOptions(),
+            plugins: {
+                ...getCommonOptions().plugins,
+                annotation: {
+                    annotations: {
+                        orderRecord: {
+                            type: 'line',
+                            yMin: 1457,
+                            yMax: 1457,
+                            borderColor: '#dc2626',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            scaleID: 'y1',
+                            label: {
+                                content: '신기록 1,457건',
+                                enabled: true,
+                                position: 'end',
+                                backgroundColor: '#dc2626',
+                                color: 'white'
+                            }
+                        }
+                    }
+                }
+            },
             scales: {
                 ...getCommonOptions().scales,
                 y: {
