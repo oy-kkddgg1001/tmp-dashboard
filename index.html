@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle">대시보드</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.1/chartjs-plugin-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/2.2.1/chartjs-plugin-annotation.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,10 +16,21 @@
         <div class="sale-period" id="salePeriod">
             로딩 중...
         </div>
+
+        <!-- 데이터 필터 버튼 -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterData('all')">전체</button>
+            <button class="filter-btn" onclick="filterData('recent')">최근 7일</button>
+            <button class="filter-btn" onclick="filterData('month')">최근 30일</button>
+            <button class="filter-btn" onclick="filterData('sale')">9월 세일 기간</button>
+        </div>
         
         <!-- 매출 추이 차트 -->
         <div class="chart-container">
-            <div class="chart-title">📈 순매출 추이</div>
+            <div class="chart-header">
+                <div class="chart-title">📈 순매출 추이</div>
+                <button class="zoom-reset-btn" onclick="resetZoom('salesChart')">🔍 줌 리셋</button>
+            </div>
             <div class="chart-wrapper">
                 <canvas id="salesChart"></canvas>
             </div>
@@ -25,7 +38,10 @@
         
         <!-- 전환율 & ROAS 차트 -->
         <div class="chart-container">
-            <div class="chart-title">🎯 전환율 & ROAS</div>
+            <div class="chart-header">
+                <div class="chart-title">🎯 전환율 & ROAS</div>
+                <button class="zoom-reset-btn" onclick="resetZoom('conversionChart')">🔍 줌 리셋</button>
+            </div>
             <div class="chart-wrapper">
                 <canvas id="conversionChart"></canvas>
             </div>
@@ -34,7 +50,10 @@
         <div class="grid-2">
             <!-- 활동 참여 현황 -->
             <div class="chart-container">
-                <div class="chart-title">👥 활동 참여 현황</div>
+                <div class="chart-header">
+                    <div class="chart-title">👥 활동 참여 현황</div>
+                    <button class="zoom-reset-btn" onclick="resetZoom('activityChart')">🔍 줌 리셋</button>
+                </div>
                 <div class="chart-wrapper">
                     <canvas id="activityChart"></canvas>
                 </div>
@@ -42,7 +61,10 @@
             
             <!-- 주문 & 유입 현황 -->
             <div class="chart-container">
-                <div class="chart-title">🛒 주문 & 유입 현황</div>
+                <div class="chart-header">
+                    <div class="chart-title">🛒 주문 & 유입 현황</div>
+                    <button class="zoom-reset-btn" onclick="resetZoom('orderChart')">🔍 줌 리셋</button>
+                </div>
                 <div class="chart-wrapper">
                     <canvas id="orderChart"></canvas>
                 </div>
@@ -57,6 +79,17 @@
         <!-- 전반적 성과 분석 -->
         <div class="insights" id="insights">
             <!-- 동적으로 생성 -->
+        </div>
+
+        <!-- 일자별 성과 분석 -->
+        <div class="comments-section">
+            <h2 class="comments-title" id="commentsTitle">📊 일자별 성과 분석</h2>
+            <div class="tabs" id="commentTabs">
+                <!-- 동적으로 생성 -->
+            </div>
+            <div class="tab-content-container" id="commentContent">
+                <!-- 동적으로 생성 -->
+            </div>
         </div>
     </div>
 
